@@ -95,7 +95,3 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
