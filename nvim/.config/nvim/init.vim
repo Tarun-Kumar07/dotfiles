@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'ThePrimeagen/vim-be-good'
   "colorscheme
   Plug 'gruvbox-community/gruvbox'
+  Plug 'arcticicestudio/nord-vim'
   "airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
