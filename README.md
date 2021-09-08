@@ -1,4 +1,4 @@
-# dotfiles
+#dotfiles
 
 for installing
   stow all directories
