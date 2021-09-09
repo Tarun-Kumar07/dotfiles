@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-treesitter/playground'
   "Github
   Plug 'tpope/vim-fugitive'  
+  Plug 'airblade/vim-gitgutter' "highlights for github changes
 call plug#end()
 
 "status line
