@@ -8,7 +8,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   "basic ide features
   Plug 'Yggdroot/indentLine'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'nvim-lua/completion-nvim'
+  "Plug 'nvim-lua/completion-nvim'
+  Plug 'hrsh7th/nvim-compe'
   "lsp
   Plug 'neovim/nvim-lspconfig'
   "for telescope
