@@ -35,4 +35,3 @@ set shortmess+=c
 "Interacting with system clipboard
 set clipboard=unnamed
 set clipboard+=unnamedplus
-
