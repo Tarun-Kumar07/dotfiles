@@ -16,7 +16,7 @@ require "paq" {
  'Yggdroot/indentLine';
  'jiangmiao/auto-pairs';
  'tpope/vim-commentary';
- 'nvim-lua/completion-nvim'
+ 'nvim-lua/completion-nvim';
  'hrsh7th/nvim-compe';
   --lsp
  'neovim/nvim-lspconfig';
