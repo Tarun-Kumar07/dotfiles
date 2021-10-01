@@ -34,7 +34,7 @@ require "paq" {
 }
 
 --Status line
-vim.g['airlline_powerline_fonts'] = 1
+vim.g['airline_powerline_fonts'] = 1
 
 vim.g.mapleader = " "
 
