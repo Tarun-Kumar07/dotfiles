@@ -211,7 +211,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 #wallpaper
-exec_always feh --bg-scale ~/wallpapers/mikasa.jpeg
+exec_always feh --bg-scale ~/wallpapers/gojo.jpg
 
 #transparency
 exec compton
