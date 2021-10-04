@@ -78,7 +78,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split in horizontal orien
 # p stands for level ;-)
 bindsym $mod+p split h
 
@@ -185,6 +185,9 @@ bar {
         position top
         status_command i3status
 }
+
+#Lock
+bindsym $mod+Shift+x exec i3lock --color 475263
 
 #F keys
 # Use pactl to adjust volume in PulseAudio.
