@@ -9,6 +9,7 @@ require "paq" {
  'ThePrimeagen/vim-be-good';
   --colorscheme
  'gruvbox-community/gruvbox';
+ 'arcticicestudio/nord-vim';
  -- 'morhetz/gruvbox';
   --airline
  'vim-airline/vim-airline';
