@@ -14,7 +14,6 @@ set.wrap=false
 set.backup=false
 set.undodir='~/.vim/undodir'
 set.incsearch=true
-set.termguicolors=true
 set.scrolloff=7
 set.showmode=false
 set.colorcolumn='100'
