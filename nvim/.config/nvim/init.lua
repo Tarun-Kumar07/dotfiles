@@ -5,34 +5,35 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require "paq" {
- 'savq/paq-nvim';
- 'ThePrimeagen/vim-be-good';
+  'savq/paq-nvim';
+  'ThePrimeagen/vim-be-good';
   --colorscheme
- 'gruvbox-community/gruvbox';
- 'arcticicestudio/nord-vim';
- -- 'morhetz/gruvbox';
+  'gruvbox-community/gruvbox';
+  'arcticicestudio/nord-vim';
+  -- 'morhetz/gruvbox';
   --airline
- 'vim-airline/vim-airline';
- 'vim-airline/vim-airline-themes';
+  'vim-airline/vim-airline';
+  'vim-airline/vim-airline-themes';
   --basic ide features
- 'Yggdroot/indentLine';
- 'jiangmiao/auto-pairs';
- 'tpope/vim-commentary';
- 'nvim-lua/completion-nvim';
- 'hrsh7th/nvim-compe';
+  'Yggdroot/indentLine';
+  'jiangmiao/auto-pairs';
+  'tpope/vim-commentary';
+  'hrsh7th/cmp-nvim-lsp';
+  'hrsh7th/nvim-cmp';
   --lsp
- 'neovim/nvim-lspconfig';
+  'neovim/nvim-lspconfig';
+  'glepnir/lspsaga.nvim';  
   --for telescope
- 'nvim-lua/popup.nvim';
- 'nvim-lua/plenary.nvim';
- 'nvim-telescope/telescope.nvim';
- 'nvim-telescope/telescope-fzy-native.nvim';
+  'nvim-lua/popup.nvim';
+  'nvim-lua/plenary.nvim';
+  'nvim-telescope/telescope.nvim';
+  'nvim-telescope/telescope-fzy-native.nvim';
   --Treesitter
   {'nvim-treesitter/nvim-treesitter', ['do'] = 'TSUpdate'} ;
- 'nvim-treesitter/playground';
+  'nvim-treesitter/playground';
   --Github
- 'tpope/vim-fugitive';
- 'airblade/vim-gitgutter'; --highlights for github changes
+  'tpope/vim-fugitive';
+  'airblade/vim-gitgutter'; --highlights for github changes
 }
 
 --Status line
