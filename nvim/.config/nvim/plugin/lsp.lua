@@ -1,5 +1,5 @@
 local saga = require('lspsaga')
-saga.init_lsp_saga()
+-- saga.init_lsp_saga()
 
 local nvim_lsp = require('lspconfig')
 
@@ -17,37 +17,35 @@ local on_attach = function()
   -- local opts = { noremap=true, silent=true }
 
   -- -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  -- buf_set_keymap('n', 'K',"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-  -- -- buf_set_keymap('n', 'K','<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  -- buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
   local noremap = function(key)
     vim.api.nvim_set_keymap("n",key[1],key[2],{noremap = true})
   end
 
-  noremap{'gd', ':lua require("lspsaga.hover").render_hover_doc()'}
-  noremap{'<silent>K',":Lspsaga hover_doc<CR>"}
+  noremap{'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'}
+  noremap{'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'}
+  -- noremap{'K',"<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>"}
+  noremap{'K','<cmd>lua vim.lsp.buf.hover()<CR>'}
+  noremap{'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'}
+  noremap{'<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'}
+  noremap{'<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>'}
+  noremap{'<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>'}
+  noremap{'<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>'}
+  noremap{'<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>'}
+  noremap{'<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>'}
+  noremap{'<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>'}
+  noremap{'gr', '<cmd>lua vim.lsp.buf.references()<CR>'}
+  noremap{'<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'}
+  noremap{'[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}
+  noremap{']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}
+  noremap{'<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>'}
+  noremap{'<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
 
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'ccls' }
+local servers = { 'pyright', 'ccls', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup({
     on_attach = on_attach,

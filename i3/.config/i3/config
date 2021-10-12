@@ -197,13 +197,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Sreen brightness controls
-# set $brightness "source ~/.config/i3/brightness.sh"
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-# bindsym XF86MonBrightnessUp exec brightness +20 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec brightness -20 # decrease screen brightness
-
+# Screen brightness controls
+# Add write permission to the sys file =>
+# chmod o+w /sys/class/backlight/intel_backlight/brightness
+set $brightness "~/.config/i3/brightlight/brightlight"
+# bindsym XF86MonBrightnessUp exec brightness -p -i 10 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec brightness -p -d 10 # decrease screen brightness
+bindsym $mod+b exec brightness -p -i 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightness -p -d 10 # decrease screen brightness
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh # toggle touchpad
 
