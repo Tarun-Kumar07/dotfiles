@@ -3,12 +3,12 @@
 nvim(){
   #Installing nvim from source
   cd $HOME
-  if[! -d "~/neovim"]; 
+  if ![-d "~/neovim"] 
   then 
     git clone https://github.com/neovim/neovim.git
   fi	
   cd neovim
-
+  
   #Installing dependancies
   apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
 
@@ -22,7 +22,7 @@ nvim(){
 alacritty(){
   cd $HOME
 
-  if[! -d "~/alacritty"]; 
+  if ![-d "~/alacritty"]; 
   then 
     git clone https://github.com/alacritty/alacritty.git
   fi
@@ -57,7 +57,6 @@ tmux(){
 }
 
 zsh(){
-
   apt-get install -y zsh	
 
   #change shell to zsh
@@ -65,7 +64,25 @@ zsh(){
 }
 
 fonts(){
-  sudo apt-get install -y fonts-hack
+  apt-get install -y fonts-hack
+  apt-get install -y fonts-font-awesome
+
+  # dir = ~/.local/share/fonts
+  # cd /usr/share/fonts/truetype 
+  # mkdir hack
+  # cd hack
+
+  # mkdir -p ~/.local/share/fonts
+  # cd ~/.local/share/fonts
+
+  # curl -fLo "Hack-Regular.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
+  # curl -fLo "Hack-Italic.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Italic/complete/Hack%20Italic%20Nerd%20Font%20Complete.ttf
+  # curl -fLo "Hack-BoldItalic.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/BoldItalic/complete/Hack%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
+  # curl -fLo "Hack-Bold.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete.ttf
+  # curl -fLo "Font-Awesome-5-Free-Regular-400.otf" https://github.com/FortAwesome/Font-Awesome/blob/master/otfs/Font%20Awesome%205%20Brands-Regular-400.otf 
+  # curl -fLo "Font-Awesome-5-Brands-Regular-400.otf" https://github.com/FortAwesome/Font-Awesome/blob/master/otfs/Font%20Awesome%205%20Brands-Regular-400.otf
+  # curl -fLo "Font-Awesome-5-Free-Solid-900.otf" https://github.com/FortAwesome/Font-Awesome/blob/master/otfs/Font%20Awesome%205%20Free-Solid-900.otf
+  # fc-cache -f -v
 }
 
 configs(){
