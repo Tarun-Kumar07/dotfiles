@@ -23,6 +23,7 @@ require "paq" {
   --lsp
   'neovim/nvim-lspconfig';
   'glepnir/lspsaga.nvim';  
+  'L3MON4D3/LuaSnip';
   --for telescope
   'nvim-lua/popup.nvim';
   'nvim-lua/plenary.nvim';
@@ -34,6 +35,10 @@ require "paq" {
   --Github
   'tpope/vim-fugitive';
   'airblade/vim-gitgutter'; --highlights for github changes
+  --Todos
+  -- 'tools-life/taskwiki'; 
+  -- {'vimwiki/vimwiki', branch = 'dev'};
+  -- 'iamcco/markdown-preview.nvim';
 }
 
 --Status line

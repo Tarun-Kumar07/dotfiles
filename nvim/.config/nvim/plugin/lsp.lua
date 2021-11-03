@@ -7,16 +7,6 @@ local nvim_lsp = require('lspconfig')
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function()
-  -- local function buf_set_keymap(...) vim.api.nvim_set_keymap(...) end
-  -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- -- Enable completion triggered by <c-x><c-o>
-  -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- -- Mappings.
-  -- local opts = { noremap=true, silent=true }
-
-  -- -- See `:help vim.lsp.*` for documentation on any of the below functions
 
   local noremap = function(key)
     vim.api.nvim_set_keymap("n",key[1],key[2],{noremap = true})
@@ -42,6 +32,16 @@ local on_attach = function()
   noremap{'<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>'}
 
 end
+
+-- Install clang
+-- sudo apt-get install clangd-12
+-- sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+
+-- Install ccls
+-- sudo snap install ccls --classic
+
+-- To Install pyright and tsserver use npm
+
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches

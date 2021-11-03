@@ -6,8 +6,9 @@ set.nu=true
 set.hlsearch=false
 set.hidden=true
 set.errorbells=false
-set.tabstop=2 softtabstop=2
+set.tabstop=2
 set.shiftwidth=2
+set.softtabstop=2
 set.expandtab=true
 set.smartindent=true
 set.wrap=false
@@ -19,7 +20,6 @@ set.showmode=false
 set.colorcolumn='100'
 --highlight ColorColum ctermbg=0 guibg=lightgrey
 set.signcolumn='yes'
-
 --highlights cursor line number
 set.cursorline=true
 set.cursorlineopt='number'

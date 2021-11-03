@@ -4,6 +4,7 @@ end
   
 map { "<leader>ff", ":lua require('telescope.builtin').find_files()<cr>"}
 map { "<leader>fg", ":lua require('telescope.builtin').git_files()<CR>" }
+map { "<leader>ec", ":lua require('telescope.builtin').find_files({hidden=true,cwd='~/.dotfiles/'})  <CR>" }
 map { "<leader>lg", ":lua require('telescope.builtin').live_grep()<cr>"}
 map { "<leader>fb", ":lua require('telescope.builtin').buffers()<cr>"}
 map { "<leader>fh" ,":lua require('telescope.builtin').help_tags()<cr>"}
