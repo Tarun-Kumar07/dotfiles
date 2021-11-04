@@ -11,14 +11,14 @@ python(){
 
 ccls(){
   cd $sourceCode 
-  # git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+  git clone --depth=1 --recursive https://github.com/MaskRay/ccls
   cd ccls
-  # sudo apt install zlib1g-dev libncurses-dev
-  # sudo apt install clang libclang-dev
-  # cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release \
-  #   -DCMAKE_PREFIX_PATH=/usr/lib/llvm-7 \
-  #   -DLLVM_INCLUDE_DIR=/usr/lib/llvm-7/include \
-  #   -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-7/
+  sudo apt install zlib1g-dev libncurses-dev
+  sudo apt install clang libclang-dev
+  cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_PREFIX_PATH=/usr/lib/llvm-7 \
+    -DLLVM_INCLUDE_DIR=/usr/lib/llvm-7/include \
+    -DLLVM_BUILD_INCLUDE_DIR=/usr/include/llvm-7/
   cmake --build Release --target install
 
 }
@@ -169,7 +169,7 @@ brave(){
 # configs
 # fonts
 # nvim 
-ccls
+# ccls
 # alacritty
 # i3
 # tmux
