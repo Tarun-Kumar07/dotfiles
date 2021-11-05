@@ -1,6 +1,8 @@
 require('plugins')
+
 --Status line
 vim.g['airline_powerline_fonts'] = 1
+vim.g['airline#extensions#tabline#enabled'] = 0
 
 vim.g.mapleader = " "
 
