@@ -61,6 +61,7 @@ nvim(){
 #  if [! -d "neovim"]; then 
     git clone https://github.com/neovim/neovim.git
     cd neovim
+    git checkout stable
   #else
   #  git pull  origin master
    # cd neovim 
@@ -82,6 +83,7 @@ alacritty(){
   if ![-d "$sourceCode/alacritty"]; then 
     git clone https://github.com/alacritty/alacritty.git
     cd alacritty
+    git checkout stable
   else
      git pull  origin master
     cd alacritty
