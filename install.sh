@@ -2,12 +2,12 @@
 
 sourceCode=/home/tarun/sourceCode
 
-python(){
-  sudo apt install software-properties-common -y
-  add-sudo apt-repository ppa:deadsnakes/ppa
-  sudo apt install python3.10
-  sudo apt install python3-pip
-}
+# python(){
+#   sudo apt install software-properties-common -y
+#   sudo add apt-repository ppa:deadsnakes/ppa
+#   sudo apt install python3.10
+#   sudo apt install python3-pip
+# }
 
 ccls(){
   cd $sourceCode 
@@ -22,6 +22,7 @@ ccls(){
   cmake --build Release --target install
 
 }
+
 node(){
   cd $sourceCode
   # git clone -b v16.13.0 --single-branch https://github.com/nodejs/node.git
@@ -58,14 +59,8 @@ taskwarrior(){
 nvim(){
   #Installing nvim from source
   cd $sourceCode
-#  if [! -d "neovim"]; then 
-    git clone https://github.com/neovim/neovim.git
-    cd neovim
-    git checkout stable
-  #else
-  #  git pull  origin master
-   # cd neovim 
-#  fi	
+  git clone https://github.com/neovim/neovim.git
+  cd neovim
  
   #Installing dependancies
   sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
@@ -75,39 +70,36 @@ nvim(){
 
   #for telescope
   sudo apt-get -y install ripgrep
+
+  #for packer
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 }
 
 alacritty(){
   cd $sourceCode
+  # git clone https://github.com/alacritty/alacritty.git
+  cd alacritty
+  git checkout v0.9.0
 
-  if ![-d "$sourceCode/alacritty"]; then 
-    git clone https://github.com/alacritty/alacritty.git
-    cd alacritty
-    git checkout stable
-  else
-     git pull  origin master
-    cd alacritty
-  fi
-  
+  ##Install rust
+  # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-  #Install rust
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  ##Dependanices
+  #sudo apt-get -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
-  #Dependanices
-  sudo apt-get -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-
-  sudo apt-get install -y cargo
+  #sudo apt-get install -y cargo
   cargo build --release
 
   #Add to path
-  cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-  cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-  desktop-file-install extra/linux/Alacritty.desktop
-  update-desktop-database
+  sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  sudo desktop-file-install extra/linux/Alacritty.desktop
+  sudo update-desktop-database
 
   #Alacritty as default shell
-  update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50		
-  update-alternatives --config x-terminal-emulator
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50		
+  sudo update-alternatives --config x-terminal-emulator
 }
 
 i3(){
@@ -160,21 +152,21 @@ configs(){
 }
 
 brave(){
-  sudo apt install sudo apt-transport-https curl
-  curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-sudo apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-sudo apt-release.s3.brave.com/ stable main"|tee /etc/sudo apt/sources.list.d/brave-browser-release.list
-  sudo apt update
-  sudo apt install brave-browser
+ sudo apt install -y apt-transport-https curl
+ sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+ sudo apt update
+ sudo apt install -y brave-browser
 }
 
-# brave
-# configs
-# fonts
-# nvim 
-# ccls
-# alacritty
-# i3
-# tmux
-# zsh
-# taskwarrior
-# node
+configs
+brave
+fonts
+nvim 
+ccls
+alacritty
+i3
+tmux
+zsh
+# python
+node
