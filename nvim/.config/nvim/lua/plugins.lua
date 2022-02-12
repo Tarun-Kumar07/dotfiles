@@ -4,8 +4,10 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'ThePrimeagen/vim-be-good'
   --colorscheme
-  use 'gruvbox-community/gruvbox'
-  use 'arcticicestudio/nord-vim'
+  use 'wittyjudge/gruvbox-material.nvim'
+  use 'sainnhe/gruvbox-material'
+  -- use 'gruvbox-community/gruvbox'
+  -- use 'arcticicestudio/nord-vim'
   -- 'morhetz/gruvbox';
   --airline
   use 'vim-airline/vim-airline'
