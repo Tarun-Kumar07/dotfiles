@@ -13,8 +13,8 @@ ccls(){
   cd $sourceCode 
   git clone --depth=1 --recursive https://github.com/MaskRay/ccls
   cd ccls
-  sudo apt install zlib1g-dev libncurses-dev
-  sudo apt install clang libclang-dev
+  sudo apt install -y zlib1g-dev libncurses-dev
+  sudo apt install -y clang libclang-dev
   cmake -H. -BRelease -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_PREFIX_PATH=/usr/lib/llvm-7 \
     -DLLVM_INCLUDE_DIR=/usr/lib/llvm-7/include \
@@ -86,9 +86,9 @@ alacritty(){
   # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
   ##Dependanices
-  #sudo apt-get -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+  sudo apt-get -y install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
-  #sudo apt-get install -y cargo
+  sudo apt-get install -y cargo
   cargo build --release
 
   #Add to path
@@ -104,6 +104,18 @@ alacritty(){
 
 i3(){
   sudo apt-get install -y i3 compton blueman feh scrot
+
+  #Enables touch in i3
+  #link = https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/
+  sudo mkdir -p /etc/X11/xorg.conf.d && sudo tee <<'EOF' /etc/X11/xorg.conf.d/90-touchpad.conf 1> /dev/null
+  Section "InputClass"
+          Identifier "touchpad"
+          MatchIsTouchpad "on"
+          Driver "libinput"
+          Option "Tapping" "on"
+  EndSection
+
+EOF
 }
 
 tmux(){
@@ -148,7 +160,7 @@ configs(){
     stow -D $dirname
     stow $dirname
   done
-
+  stow -D scripts	
 }
 
 brave(){
@@ -159,14 +171,14 @@ brave(){
  sudo apt install -y brave-browser
 }
 
-configs
-brave
-fonts
-nvim 
-ccls
+# configs
+# brave
+# fonts
+# nvim 
+# ccls
 alacritty
-i3
-tmux
-zsh
+# i3
+# tmux
+# zsh
 # python
-node
+# node
