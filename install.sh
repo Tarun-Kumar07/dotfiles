@@ -78,7 +78,7 @@ nvim(){
 
 alacritty(){
   cd $sourceCode
-  # git clone https://github.com/alacritty/alacritty.git
+  git clone https://github.com/alacritty/alacritty.git
   cd alacritty
   git checkout v0.9.0
 
