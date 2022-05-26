@@ -11,13 +11,20 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
 
   --airline
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   --basic ide features
   use 'Yggdroot/indentLine'
   use 'jiangmiao/auto-pairs'
   use 'tpope/vim-commentary'
+
+  --lsp
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   --nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp'
@@ -25,10 +32,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-calc'
   use 'hrsh7th/nvim-cmp'
 
-  --lsp
-  use 'neovim/nvim-lspconfig'
-  use 'glepnir/lspsaga.nvim'
+  --snippets
   use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
 
   --for telescope
   use 'nvim-lua/popup.nvim'
@@ -41,9 +48,8 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/playground'
   
   --Github
-  -- use 'tpope/vim-fugitive'
+  use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
-  use 'airblade/vim-gitgutter' --highlights for github change
 
   --Todos
   -- 'tools-life/taskwiki'; 
