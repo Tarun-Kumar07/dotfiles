@@ -1,6 +1,3 @@
-local saga = require('lspsaga')
--- saga.init_lsp_saga()
-
 local nvim_lsp = require('lspconfig')
 
 
