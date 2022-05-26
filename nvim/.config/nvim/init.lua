@@ -1,3 +1,5 @@
+require('plugins')
+
 local set = vim.opt
 set.exrc = true
 set.relativenumber = true

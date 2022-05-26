@@ -13,11 +13,12 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
+		formatting.clang_format,
 		-- diagnostics.flake8
 	},
 })
 
-local servers = { "pyright", "sumneko_lua" }
+local servers = { "pyright", "sumneko_lua", "clangd" }
 nvim_lsp_installer.setup({
 	ensure_installed = servers,
 })
