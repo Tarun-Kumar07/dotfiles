@@ -13,12 +13,12 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		formatting.clang_format,
+		formatting.clang_format.with({ extra_args = { "--style=Google" } }),
 		-- diagnostics.flake8
 	},
 })
 
-local servers = { "pyright", "sumneko_lua", "clangd" }
+local servers = { "pyright", "sumneko_lua", "clangd", "jdtls" }
 nvim_lsp_installer.setup({
 	ensure_installed = servers,
 })
@@ -57,9 +57,9 @@ local on_attach = function(client, bufnr)
 	noremap({ "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>" })
 	noremap({ "gr", "<cmd>lua vim.lsp.buf.references()<CR>" })
 	noremap({ "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>" })
-	noremap({ "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>" })
-	noremap({ "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>" })
-	noremap({ "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>" })
+	noremap({ "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>" })
+	noremap({ "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>" })
+	noremap({ "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>" })
 
 	--null_ls formatting
 	if client.supports_method("textDocument/formatting") then
