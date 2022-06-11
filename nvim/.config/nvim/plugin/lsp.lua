@@ -1,3 +1,6 @@
+-- TODO : multiple clients with different offset encoding for clangd
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
+
 local nvim_lsp_installer = require("nvim-lsp-installer")
 local nvim_lsp = require("lspconfig")
 local cmp = require("cmp_nvim_lsp")
@@ -6,7 +9,7 @@ local util = require("vim.lsp.util")
 
 --null ls
 local formatting = null_ls.builtins.formatting
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -14,7 +17,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.clang_format.with({ extra_args = { "--style=Google" } }),
-		-- diagnostics.flake8
+		diagnostics.cppcheck,
 	},
 })
 
@@ -59,7 +62,7 @@ local on_attach = function(client, bufnr)
 	noremap({ "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>" })
 	noremap({ "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>" })
 	noremap({ "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>" })
-	noremap({ "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>" })
+	noremap({ "<space>q", "<cmd>lua vim.diagnostic.setqflist()<CR>" })
 
 	--null_ls formatting
 	if client.supports_method("textDocument/formatting") then

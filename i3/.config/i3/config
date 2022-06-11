@@ -12,8 +12,8 @@
 
 #I3 gaps
 # for_window [class="^.*"] border pixel 2
-# gaps inner 10
-# Sets border to 0
+# gaps inner 15
+# # Sets border to 0
 # default_border pixel 0
 
 set $mod Mod1
@@ -184,24 +184,49 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# set $bg-color 	         #2f343f
+# set $inactive-bg-color   #2f343f
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+# set $indicator           #00ff00
+#
+#
+# # window colors
+# #                       border              background         text                 indicator
+# client.focused          $bg-color           $bg-color          $text-color          $bg-color
+# client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
+# client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $bg-color
+# client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+
+
 #polybar
 # exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         position top
         status_command i3status
+        colors {
+          background #0b0a08 
+          statusline #ffffff
+
+          focused_workspace  #ffffff #285577
+          active_workspace   #ffffff #333333
+          inactive_workspace #888888 #222222
+          urgent_workspace   #ffffff #900000
+    }
 }
 
-#Lock
-bindsym $mod+Shift+x exec i3lock --color 475263
+#lock
+bindsym $mod+shift+x exec i3lock --color 475263
 
-#F keys
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+#f keys
+# use pactl to adjust volume in pulseaudio.
+set $refresh_i3status killall -sigusr1 i3status
+bindsym xf86audioraisevolume exec --no-startup-id pactl set-sink-volume @default_sink@ +5% && $refresh_i3status
+bindsym xf86audiolowervolume exec --no-startup-id pactl set-sink-volume @default_sink@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
