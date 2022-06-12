@@ -1,9 +1,12 @@
+require("config.defaults")
 require("config.plugins")
 require("config.colors")
 require("config.lualine")
 require("config.telescope")
 require("config.gitsigns")
+require("config.lsp")
 require("config.cmp")
+
 -- require("config.lsp")
 
 -- local set = vim.opt

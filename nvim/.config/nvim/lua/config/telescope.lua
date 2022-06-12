@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 local map = function(key)
-  vim.api.nvim_buf_set_keymap(0,"n",key[1],key[2],{noremap = true})
+  vim.api.nvim_set_keymap("n",key[1],key[2],{noremap = true})
 end
     
 map { "<leader>ff", ":lua require('telescope.builtin').find_files()<cr>"}
