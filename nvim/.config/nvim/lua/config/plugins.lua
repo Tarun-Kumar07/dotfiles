@@ -49,6 +49,7 @@ return require("packer").startup(function(use)
 	use("takac/vim-hardtime")
 
 	--colorscheme
+	use("EdenEast/nightfox.nvim")
 	use("sainnhe/gruvbox-material")
 
 	--lualine
@@ -69,6 +70,7 @@ return require("packer").startup(function(use)
 	-- })
 
 	--basic ide features
+	use("kyazdani42/nvim-tree.lua")
 	use("Yggdroot/indentLine")
 	use("jiangmiao/auto-pairs")
 	use({
