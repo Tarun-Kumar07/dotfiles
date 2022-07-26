@@ -109,6 +109,9 @@ return require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 
+	--java
+	use("mfussenegger/nvim-jdtls")
+
 	--Todos
 	-- 'tools-life/taskwiki';
 	-- {'vimwiki/vimwiki', branch = 'dev'};
