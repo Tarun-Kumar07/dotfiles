@@ -39,7 +39,7 @@ set.clipboard = set.clipboard + "unnamedplus"
 vim.g.mapleader = " "
 
 --Remap for opening file tree
-vim.api.nvim_set_keymap("n", "<Leader>pv", ":wincmd v<bar> :Ex <bar>:vertical resize 30<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<Leader>pv", ":wincmd v<bar> :Ex <bar>:vertical resize 30<CR>", { noremap = true })
 
 --Vim hard mode
 vim.g.hardtime_default_on = 1
