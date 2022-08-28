@@ -80,6 +80,7 @@ return require("packer").startup(function(use)
     end,
   })
   use("tpope/vim-surround")
+  use("ThePrimeagen/harpoon")
 
   --lsp
   use("neovim/nvim-lspconfig")
