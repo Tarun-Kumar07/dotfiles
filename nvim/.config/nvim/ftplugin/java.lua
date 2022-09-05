@@ -69,7 +69,8 @@ local config = {
   root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
 
   settings = {
-    java = {},
+    -- java = {},
+    ["java.format.settings.url"] = HOME .. "\\icm\\eclipse_code-formatter-profile.xml",
   },
 
   init_options = {

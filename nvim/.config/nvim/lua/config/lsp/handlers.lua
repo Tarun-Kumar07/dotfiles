@@ -93,6 +93,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap { hotcodereplace = "auto" }
     require("jdtls.dap").setup_dap_main_class_configs()
+    client.server_capabilities.document_formatting = true
   end
   lsp_keymaps(bufnr)
   client.server_capabilities.document_formatting = false

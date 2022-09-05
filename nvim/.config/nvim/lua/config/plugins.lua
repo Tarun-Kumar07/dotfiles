@@ -51,6 +51,7 @@ return require("packer").startup(function(use)
   --colorscheme
   use("EdenEast/nightfox.nvim")
   use("sainnhe/gruvbox-material")
+  use("kyazdani42/nvim-web-devicons")
 
   --lualine
   use({
@@ -59,18 +60,19 @@ return require("packer").startup(function(use)
   })
 
   --bufferline
-  -- use({
-  -- 	"akinsho/bufferline.nvim",
-  -- 	tag = "v2.*",
-  -- 	requires = "kyazdani42/nvim-web-devicons",
-  -- 	config = function()
-  -- 		vim.opt.termguicolors = true
-  -- 		require("bufferline").setup({})
-  -- 	end,
-  -- })
+  use({
+    "akinsho/bufferline.nvim",
+    tag = "v2.*",
+    requires = "kyazdani42/nvim-web-devicons",
+  })
 
   --basic ide features
-  use("kyazdani42/nvim-tree.lua")
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+  }
   use("Yggdroot/indentLine")
   use("jiangmiao/auto-pairs")
   use({
@@ -111,6 +113,8 @@ return require("packer").startup(function(use)
 
   --Github
   use("tpope/vim-fugitive")
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use("shumphrey/fugitive-gitlab.vim")
   use("lewis6991/gitsigns.nvim")
 
   --java
