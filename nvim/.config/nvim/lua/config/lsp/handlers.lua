@@ -90,6 +90,7 @@ M.on_attach = function(client, bufnr)
   -- if client.name == "tsserver" then
   --   client.resolved_capabilities.document_formatting = false
   -- end
+  vim.api.nvim_command [[ set ff=unix ]]
   if client.name == "jdt.ls" then
     require("jdtls").setup_dap { hotcodereplace = "auto" }
     require("jdtls.dap").setup_dap_main_class_configs()

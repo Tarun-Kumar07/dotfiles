@@ -36,6 +36,9 @@ set.shortmess = set.shortmess + "c"
 set.clipboard = "unnamed"
 set.clipboard = set.clipboard + "unnamedplus"
 
+-- To avoid ^M in windows
+set.fileformat = "dos"
+
 vim.g.mapleader = " "
 
 --Remap for opening file tree

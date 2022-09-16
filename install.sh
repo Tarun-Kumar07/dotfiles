@@ -171,12 +171,12 @@ brave(){
  sudo apt install -y brave-browser
 }
 
-# configs
+configs
 # brave
 # fonts
 # nvim 
 # ccls
-alacritty
+# alacritty
 # i3
 # tmux
 # zsh
