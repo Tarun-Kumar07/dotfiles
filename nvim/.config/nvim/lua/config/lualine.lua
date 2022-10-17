@@ -4,8 +4,8 @@ if not status_ok then
   return
 end
 
-lualine.setup({ options = { theme = "nightfly", global_status = true } })
--- lualine.setup({ options = { theme = "gruvbox-material" } })
+-- lualine.setup({ options = { theme = "nightfly", global_status = true } })
+lualine.setup({ options = { theme = "gruvbox-material" } })
 
--- local set = vim.opt
--- set.laststatus = 3
+local set = vim.opt
+set.laststatus = 3

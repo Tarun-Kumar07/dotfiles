@@ -84,9 +84,13 @@ return require("packer").startup(function(use)
   use("tpope/vim-surround")
   use("ThePrimeagen/harpoon")
 
+  --mason
+  use { "williamboman/mason.nvim" }
+  use { "WhoIsSethDaniel/mason-tool-installer.nvim" }
+
   --lsp
   use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
+  -- use("williamboman/nvim-lsp-installer")
   use("jose-elias-alvarez/null-ls.nvim")
 
   --nvim-cmp
@@ -122,6 +126,7 @@ return require("packer").startup(function(use)
 
   -- Debugger
   use 'mfussenegger/nvim-dap'
+  -- use 'Pocco81/dap-buddy.nvim'
   use 'rcarriga/nvim-dap-ui'
 
   --Todos
