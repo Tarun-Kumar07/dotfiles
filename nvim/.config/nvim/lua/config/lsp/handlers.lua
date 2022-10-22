@@ -87,14 +87,15 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	lsp_keymaps(bufnr)
+	client.server_capabilities.document_formatting = false
+	-- lsp_highlight_document(client)
 	if client.name == "jdtls" then
+		require("jdtls.setup").add_commands()
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
 		client.server_capabilities.document_formatting = true
 	end
-	lsp_keymaps(bufnr)
-	client.server_capabilities.document_formatting = false
-	-- lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

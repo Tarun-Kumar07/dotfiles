@@ -13,7 +13,7 @@ mason_installer.setup({
 	ensure_installed = {
 		"pyright",
 		"clangd",
-		"lua-language-server",
+		-- "lua-language-server",
 		"jdtls",
 		"java-debug-adapter",
 		"java-test",
