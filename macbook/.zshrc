@@ -110,7 +110,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias nn="nvim"
+alias la="ls -la"
+alias t="~/.dotfiles/scripts/tmux_sessionizer.zsh"
+#
 # Autocomplete
 # Up arrow:
 bindkey '^p' up-line-or-search
