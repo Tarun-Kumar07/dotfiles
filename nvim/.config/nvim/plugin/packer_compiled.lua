@@ -165,11 +165,6 @@ _G.packer_plugins = {
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
-  ["nightfox.nvim"] = {
-    loaded = true,
-    path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
-    url = "https://github.com/EdenEast/nightfox.nvim"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -189,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -215,6 +215,11 @@ _G.packer_plugins = {
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -239,6 +244,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-lsp-handlers.nvim"] = {
+    loaded = true,
+    path = "/Users/tarun/.local/share/nvim/site/pack/packer/start/telescope-lsp-handlers.nvim",
+    url = "https://github.com/gbrlsnchs/telescope-lsp-handlers.nvim"
   },
   ["telescope-ui-select.nvim"] = {
     loaded = true,

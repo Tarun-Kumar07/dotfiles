@@ -95,6 +95,7 @@ M.on_attach = function(client, bufnr)
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
 		client.server_capabilities.document_formatting = true
+		vim.cmd([[autocmd BufWritePre <buffer> lua require'jdtls'.organize_imports()]])
 	end
 end
 

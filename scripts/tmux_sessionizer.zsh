@@ -3,6 +3,8 @@
 projects=(
           ~/.dotfiles
           ~/
+          ~/Study/leetcode.problems
+          ~/Study/java8
         )
 
 SELECTED=`print -l $projects | fzf --reverse`
