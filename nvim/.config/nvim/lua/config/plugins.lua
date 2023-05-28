@@ -1,142 +1,115 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer close and reopen Neovim...")
-  vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   return
 end
 
--- Have packer use a popup window
-packer.init({
-  display = {
-    open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
-    end,
-  },
+lazy.setup({ 
+
+   -- For vim practice
+   "ThePrimeagen/vim-be-good",
+   "takac/vim-hardtime",
+  
+   --colorscheme
+   "EdenEast/nightfox.nvim",
+   "sainnhe/gruvbox-material",
+   "kyazdani42/nvim-web-devicons",
+  
+   --lualine
+   {
+     "nvim-lualine/lualine.nvim",
+     dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+   },
+  
+   --bufferline
+   {
+     "akinsho/bufferline.nvim",
+     tag = "v2.*",
+     dependencies = "kyazdani42/nvim-web-devicons",
+   },
+  
+   --basic ide features
+   {
+     'kyazdani42/nvim-tree.lua',
+     dependencies = {
+       'kyazdani42/nvim-web-devicons', -- optional, for file icons
+     },
+   },
+   "Yggdroot/indentLine",
+   "jiangmiao/auto-pairs",
+   {
+     "numToStr/Comment.nvim",
+     config = function()
+       require("Comment").setup()
+     end,
+   },
+   "tpope/vim-surround",
+   "ThePrimeagen/harpoon",
+  
+   --mason
+   "williamboman/mason.nvim",
+   "WhoIsSethDaniel/mason-tool-installer.nvim",
+  
+   --lsp
+   "neovim/nvim-lspconfig",
+   -- use("williamboman/nvim-lsp-installer")
+   "jose-elias-alvarez/null-ls.nvim",
+  
+   --nvim-cmp
+   "hrsh7th/cmp-nvim-lsp",
+   "hrsh7th/cmp-path",
+   "hrsh7th/cmp-calc",
+   "hrsh7th/nvim-cmp",
+  
+   --snippets
+   "L3MON4D3/LuaSnip",
+   "saadparwaiz1/cmp_luasnip",
+   "rafamadriz/friendly-snippets",
+  
+   --Treesitter
+   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+   "nvim-treesitter/playground",
+  
+   --for telescope
+   "nvim-lua/popup.nvim",
+   "nvim-lua/plenary.nvim",
+   "nvim-telescope/telescope.nvim",
+   "nvim-telescope/telescope-ui-select.nvim",
+   "gbrlsnchs/telescope-lsp-handlers.nvim",
+  
+   --Github
+   "tpope/vim-fugitive",
+   { 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
+   "shumphrey/fugitive-gitlab.vim",
+   "lewis6991/gitsigns.nvim",
+  
+   --java
+   "mfussenegger/nvim-jdtls",
+  
+   -- Debugger
+   'mfussenegger/nvim-dap',
+   -- use 'Pocco81/dap-buddy.nvim'
+   'rcarriga/nvim-dap-ui',
+  
+   -- Testing
+--   {
+--   "nvim-neotest/neotest",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "nvim-treesitter/nvim-treesitter",
+--     "antoinemadec/FixCursorHold.nvim"
+--   }
+-- }
 })
-
-vim.cmd([[packadd packer.nvim]])
-
-return require("packer").startup(function(use)
-  -- Packer can manage itself
-  use("wbthomason/packer.nvim")
-
-  -- For vim practice
-  use("ThePrimeagen/vim-be-good")
-  use("takac/vim-hardtime")
-
-  --colorscheme
-  use("EdenEast/nightfox.nvim")
-  use("sainnhe/gruvbox-material")
-  use("kyazdani42/nvim-web-devicons")
-
-  --lualine
-  use({
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
-  })
-
-  --bufferline
-  use({
-    "akinsho/bufferline.nvim",
-    tag = "v2.*",
-    requires = "kyazdani42/nvim-web-devicons",
-  })
-
-  --basic ide features
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-  }
-  use("Yggdroot/indentLine")
-  use("jiangmiao/auto-pairs")
-  use({
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  })
-  use("tpope/vim-surround")
-  use("ThePrimeagen/harpoon")
-
-  --mason
-  use { "williamboman/mason.nvim" }
-  use { "WhoIsSethDaniel/mason-tool-installer.nvim" }
-
-  --lsp
-  use("neovim/nvim-lspconfig")
-  -- use("williamboman/nvim-lsp-installer")
-  use("jose-elias-alvarez/null-ls.nvim")
-
-  --nvim-cmp
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-calc")
-  use("hrsh7th/nvim-cmp")
-
-  --snippets
-  use("L3MON4D3/LuaSnip")
-  use("saadparwaiz1/cmp_luasnip")
-  use("rafamadriz/friendly-snippets")
-
-  --for telescope
-  use("nvim-lua/popup.nvim")
-  use("nvim-lua/plenary.nvim")
-  use("nvim-telescope/telescope.nvim")
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-  use("nvim-telescope/telescope-ui-select.nvim")
-
-  --Treesitter
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use("nvim-treesitter/playground")
-
-  --Github
-  use("tpope/vim-fugitive")
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use("shumphrey/fugitive-gitlab.vim")
-  use("lewis6991/gitsigns.nvim")
-
-  --java
-  use("mfussenegger/nvim-jdtls")
-
-  -- Debugger
-  use 'mfussenegger/nvim-dap'
-  -- use 'Pocco81/dap-buddy.nvim'
-  use 'rcarriga/nvim-dap-ui'
-
-  --Todos
-  -- 'tools-life/taskwiki';
-  -- {'vimwiki/vimwiki', branch = 'dev'};
-  -- 'iamcco/markdown-preview.nvim';
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
