@@ -58,12 +58,16 @@ lazy.setup({
    "ThePrimeagen/harpoon",
   
    --mason
-   "williamboman/mason.nvim",
-   "WhoIsSethDaniel/mason-tool-installer.nvim",
+   {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig"
+    } 
+   },
   
    --lsp
    "neovim/nvim-lspconfig",
-   -- use("williamboman/nvim-lsp-installer")
    "jose-elias-alvarez/null-ls.nvim",
   
    --nvim-cmp
@@ -102,7 +106,6 @@ lazy.setup({
   
    -- Debugger
    'mfussenegger/nvim-dap',
-   -- use 'Pocco81/dap-buddy.nvim'
    'rcarriga/nvim-dap-ui',
   
    -- Testing
