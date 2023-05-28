@@ -36,7 +36,6 @@ lazy.setup({
    --bufferline
    {
      "akinsho/bufferline.nvim",
-     tag = "v2.*",
      dependencies = "kyazdani42/nvim-web-devicons",
    },
   
@@ -82,12 +81,15 @@ lazy.setup({
    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
    "nvim-treesitter/playground",
   
-   --for telescope
+   -- Telescope
    "nvim-lua/popup.nvim",
-   "nvim-lua/plenary.nvim",
-   "nvim-telescope/telescope.nvim",
    "nvim-telescope/telescope-ui-select.nvim",
    "gbrlsnchs/telescope-lsp-handlers.nvim",
+  {
+    'nvim-telescope/telescope.nvim', 
+    tag = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   
    --Github
    "tpope/vim-fugitive",
