@@ -41,6 +41,4 @@ vim.g.mapleader = " "
 --Remap for opening file tree
 -- vim.api.nvim_set_keymap("n", "<Leader>pv", ":wincmd v<bar> :Ex <bar>:vertical resize 30<CR>", { noremap = true })
 
---Vim hard mode
-vim.g.hardtime_default_on = 1
 vim.lsp.set_log_level("INFO")
