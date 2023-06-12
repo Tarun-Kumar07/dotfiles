@@ -8,7 +8,9 @@ if not status_ok then
   print("Mason Installer not installed")
 end
 
-mason.setup()
+mason.setup({
+  log_level = vim.log.levels.DEBUG
+})
 mason_lspconfig.setup({
-  ensure_installed = { "pyright", "clangd", "lua_ls", "jdtls", "lemminx" }
+  automatic_installation = false
 })

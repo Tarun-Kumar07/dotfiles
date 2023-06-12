@@ -5,6 +5,7 @@ projects=(
           ~/
           ~/Study/leetcode.problems
           ~/Study/java8
+          /Users/tarun/PycharmProjects/Cirq
         )
 
 SELECTED=`print -l $projects | fzf --reverse`
