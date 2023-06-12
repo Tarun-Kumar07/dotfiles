@@ -12,5 +12,5 @@ mason.setup({
   log_level = vim.log.levels.DEBUG
 })
 mason_lspconfig.setup({
-  automatic_installation = false
+  automatic_installation = true
 })
