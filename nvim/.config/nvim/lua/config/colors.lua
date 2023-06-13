@@ -1,6 +1,7 @@
-vim.g.gruvbox_material_transparent_background = 1
+-- vim.g.gruvbox_material_transparent_background = 1
+vim.g.gruvbox_material_background = 'hard'
 vim.cmd("colorscheme gruvbox-material")
-vim.cmd("set termguicolors")
+-- vim.cmd("set termguicolors")
 
 -- require("nightfox").setup({
 --   options = {
