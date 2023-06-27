@@ -25,17 +25,21 @@ map({ "<leader>fg", function() builtin.git_files() end })
 map({ "<leader>lg", function() builtin.live_grep() end })
 map({ "<leader>fb", function() builtin.buffers() end })
 map({ "<leader>fh", function() builtin.help_tags() end })
-map({ "<leader>ps", function() builtin.grep_string({ search = vim.fn.input('Grep For > ') }) end })
+map({ "<leader>ps", function() builtin.grep_string({ search = vim.fn.input('Grep For > '), hidden = true }) end })
 
 --LSP related
 map({ "<leader>fs",
   function()
-    builtin.lsp_document_symbols({ ignore_symbols = "variable" })
+    builtin.lsp_document_symbols({ previwer = false })
   end })
 
 telescope.setup({
-  pickers = {
-    lsp_document_symbols = { theme = "dropdown" }
+  defaults = {
+    sorting_strategy = "ascending",
+    layout_statergy = "center",
+    layout_config = {
+      prompt_position = "top"
+    },
   },
   extensions = {
     ["ui-select"] = {
