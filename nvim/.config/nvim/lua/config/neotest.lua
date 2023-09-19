@@ -4,7 +4,6 @@ if not status_ok then
 	return
 end
 
-
 -- TODO
 -- Dynamically take the python path by doing where python
 -- local on_exit = function(obj)
@@ -25,11 +24,22 @@ neotest.setup({
 			dap = { justMyCode = false },
 			python = "/Users/tarun/.virtualenvs/cirq-py3/bin/python",
 		}),
+		require("neotest-jest")({}),
 	},
 })
 
-vim.keymap.set("n", "<leader>rt", function() neotest.run.run() end)
-vim.keymap.set("n", "<leader>st", function() neotest.run.stop() end)
-vim.keymap.set("n", "<leader>rT", function() neotest.run.run(vim.fn.expand("%")) end)
-vim.keymap.set("n", "<leader>dt", function() neotest.run.run({strategy = "dap"}) end)
-vim.keymap.set("n", "<leader>tr", function() neotest.output.open({enter=true,last_run=true,auto_close=true,short=false})end) 
+vim.keymap.set("n", "<leader>tr", function()
+	neotest.run.run()
+end)
+vim.keymap.set("n", "<leader>ts", function()
+	neotest.run.stop()
+end)
+vim.keymap.set("n", "<leader>tR", function()
+	neotest.run.run(vim.fn.expand("%"))
+end)
+vim.keymap.set("n", "<leader>td", function()
+	neotest.run.run({ strategy = "dap" })
+end)
+vim.keymap.set("n", "<leader>to", function()
+	neotest.output.open({ enter = true, last_run = true, auto_close = true, short = false })
+end)
