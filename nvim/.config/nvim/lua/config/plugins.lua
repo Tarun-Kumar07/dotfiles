@@ -23,8 +23,9 @@ lazy.setup({
 	"takac/vim-hardtime",
 
 	--colorscheme
-	"EdenEast/nightfox.nvim",
-	"sainnhe/gruvbox-material",
+	-- "EdenEast/nightfox.nvim",
+	-- "sainnhe/gruvbox-material",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	"kyazdani42/nvim-web-devicons",
 
 	--lualine
