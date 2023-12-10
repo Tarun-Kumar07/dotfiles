@@ -1,6 +1,7 @@
 local M = {}
+local navbuddy = require("nvim-navbuddy")
+local navic = require("nvim-navic")
 
--- TODO: backfill this to template
 M.setup = function()
 	local signs = {
 		{ name = "DiagnosticSignError", text = "" },
@@ -96,6 +97,8 @@ M.on_attach = function(client, bufnr)
 		require("jdtls.dap").setup_dap_main_class_configs()
 		client.server_capabilities.document_formatting = true
 		vim.cmd([[autocmd BufWritePre <buffer> lua require'jdtls'.organize_imports()]])
+
+		navbuddy.attach(client, bufnr)
 	end
 end
 
