@@ -4,7 +4,26 @@ if not status_ok then
 	return
 end
 
-lualine.setup({ options = { theme = "catppuccin", global_status = true } })
+local navic = require("nvim-navic")
+
+lualine.setup({
+	options = {
+		theme = "catppuccin",
+		global_status = true,
+	},
+	sections = {
+		lualine_x = {
+			{
+				function()
+					return navic.get_location()
+				end,
+				cond = function()
+					return navic.is_available()
+				end,
+			},
+		},
+	},
+})
 
 local set = vim.opt
 set.laststatus = 3

@@ -98,6 +98,9 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = true
 		vim.cmd([[autocmd BufWritePre <buffer> lua require'jdtls'.organize_imports()]])
 
+		if client.server_capabilities.documentSymbolProvider then
+			navic.attach(client, bufnr)
+		end
 		navbuddy.attach(client, bufnr)
 	end
 end
