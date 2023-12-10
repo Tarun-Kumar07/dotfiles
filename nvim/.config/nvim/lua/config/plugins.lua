@@ -70,11 +70,38 @@ lazy.setup({
 	"neovim/nvim-lspconfig",
 	"jose-elias-alvarez/null-ls.nvim",
 
+	-- Copilot
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+					enable = false,
+				},
+				panel = {
+					enable = false,
+				},
+			})
+		end,
+	},
+
 	--nvim-cmp
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-calc",
-	"hrsh7th/nvim-cmp",
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{
+				"zbirenbaum/copilot-cmp",
+				config = function()
+					require("copilot_cmp").setup()
+				end,
+			},
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-calc",
+		},
+	},
 
 	--snippets
 	{
