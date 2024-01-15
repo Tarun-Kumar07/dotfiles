@@ -4,25 +4,12 @@ if not status_ok then
 	return
 end
 
--- TODO
--- Dynamically take the python path by doing where python
--- local on_exit = function(obj)
---   print(obj.code)
---   print(obj.signal)
---   print(obj.stdout)
---   print(obj.stderr)
--- end
--- Run asynchronously
--- vim.system({'where', 'python'}, { text = true }, on_exit)
--- Run synchronously
--- local obj = vim.system({'echo', 'hello'}, { text = true }):wait()
--- { code = 0, signal = 0, stdout = 'hello', stderr = '' }
+local python_path = vim.fn.exepath("python")
 
 neotest.setup({
 	adapters = {
 		require("neotest-python")({
-			dap = { justMyCode = false },
-			python = "/Users/tarun/.virtualenvs/cirq-py3/bin/python",
+			python = python_path,
 		}),
 		require("neotest-jest")({}),
 	},
