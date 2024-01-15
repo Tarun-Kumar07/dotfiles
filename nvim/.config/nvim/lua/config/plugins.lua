@@ -158,23 +158,11 @@ lazy.setup({
 	{
 		"nvim-neotest/neotest",
 		dependencies = {
-			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
+			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
-		},
-	},
-
-	{
-		"nvim-neotest/neotest-python",
-		dependencies = {
-			"nvim-neotest/neotest",
-		},
-	},
-
-	{
-		"nvim-neotest/neotest-jest",
-		dependencies = {
-			"nvim-neotest/neotest",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-jest",
 		},
 	},
 
@@ -183,6 +171,15 @@ lazy.setup({
 		"rcarriga/nvim-notify",
 		config = function()
 			vim.notify = require("notify")
+		end,
+	},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
 		end,
 	},
 })
