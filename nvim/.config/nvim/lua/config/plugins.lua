@@ -85,7 +85,7 @@ lazy.setup({
 			},
 		},
 	},
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 
 	-- Copilot
 	{

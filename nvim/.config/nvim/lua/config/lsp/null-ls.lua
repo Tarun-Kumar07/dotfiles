@@ -14,5 +14,6 @@ null_ls.setup({
 		formatting.clang_format,
 		formatting.black,
 		diagnostics.eslint,
+		diagnostics.pylint,
 	},
 })
