@@ -8,11 +8,6 @@ if not status_ok then
 	print("luasnip not installed")
 end
 
-local status_ok, cmp_copilot_comparator = pcall(require, "copilot_cmp.comparators")
-if not status_ok then
-	print("cmp_copilot_comparator not installed")
-end
-
 require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.o.completeopt = "menuone,noselect,noinsert"
@@ -43,7 +38,6 @@ local kind_icons = {
 	Event = "",
 	Operator = "",
 	TypeParameter = "",
-	Copilot = "",
 }
 
 cmp.setup({
@@ -81,14 +75,12 @@ cmp.setup({
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
-				copilot = "[Copilot]",
 			})[entry.source.name]
 			return vim_item
 		end,
 	},
 
 	sources = {
-		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
@@ -99,8 +91,6 @@ cmp.setup({
 	sorting = {
 		-- priority_weight = 2,
 		comparators = {
-			require("copilot_cmp.comparators").prioritize,
-
 			-- Below is the default comparitor list and order for nvim-cmp
 			cmp.config.compare.offset,
 			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too

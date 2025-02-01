@@ -17,7 +17,6 @@ if not status_ok then
 end
 
 lazy.setup({
-
 	-- For vim practice
 	"ThePrimeagen/vim-be-good",
 	"takac/vim-hardtime",
@@ -36,12 +35,6 @@ lazy.setup({
 			"SmiteshP/nvim-navic",
 		},
 		opt = true,
-	},
-
-	--bufferline
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = "kyazdani42/nvim-web-devicons",
 	},
 
 	--basic ide features
@@ -86,23 +79,6 @@ lazy.setup({
 		},
 	},
 	"nvimtools/none-ls.nvim",
-
-	-- Copilot
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({
-				suggestion = {
-					enable = false,
-				},
-				panel = {
-					enable = false,
-				},
-			})
-		end,
-	},
 
 	--nvim-cmp
 	{
